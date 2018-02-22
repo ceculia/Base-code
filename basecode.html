@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload = "checkCookies()">
+<!-- Display a date below a button -->
+ <p>Click the button below to display the date</p>
+ 
+ <button onclick="displayDate()">What time is it?</button>
+<script>
+ function displayDate(){
+     document.getElementById("demo").innerHTML = Date();
+ }
+
+</script>
+
+ It is: <p id="demo"></p>
+
+ <!-- Check if cookies are enabled using onload event function -->
+<p id="cook"></p>
+<script>
+    function checkCookies(){
+        var text = "";
+        if (navigator.cookieEnabled == true){
+            text = "Cookies maybe enabled";
+        } else {
+            text = "Cookies NOT enabled";
+        }
+    document.getElementById("cookies").innerHTML= text;
+    }
+</script>
+
+<!-- Change an input field  - put contents to uppercase -->
+Enter your name: <input type = "text" id = "fname" onchange= "myUpperFun()">
+
+<h1>When you leave the input field, the name will be transformed</h1>
+<script>
+    function myUpperFun(){
+        var x = document.getElementById("fname").innerHTML;
+        x.value = x.value.toUpperCase();
+    }
+</script>
+
+<!-- Mouseover -->
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style = "background-color:cyan; width: 150px; height: 30px; text-align:center; color:red; padding: 30px;"> Mouse over me</div>
+
+<script> 
+function mOver(moo){
+    moo.innerHTML = "Thank You";
+}
+function mOut(moo){
+    moo.innerHTML = "Mouse over me";
+}
+
+</script>
+
+<!-- Uses event listener to execute a function -->
+
+<button id="myBtn">Try this</button>
+
+<script>
+    // add an event listener to the DOM via JS
+    var x = document.getElementById("myBtn")x.addEventListener("click", myFunction);
+
+    function myFunction(){
+        alert("Hello World!");
+    }
+    //can add additional alerts
+    x.addEventListener("click", someOtherFunction);
+    function someOtherFunction(){
+        alert ("This is a new function");
+
+    }
+</script>
+
+</body>
+</html>
